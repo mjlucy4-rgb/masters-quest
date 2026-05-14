@@ -314,6 +314,41 @@ function show(id) { document.getElementById(id).classList.remove("hidden"); }
 function hide(id) { document.getElementById(id).classList.add("hidden"); }
 
 // ===========================
+// 뒤로가기
+// ===========================
+function goBack() {
+  // 정답 성공 패널 보이는 중이면 → 입력 화면으로
+  if (state.showSuccess) {
+    const m = MISSIONS[state.step - 1];
+    hide("success-panel");
+    state.showSuccess = false;
+    if (m.type === "symbol") {
+      show("symbol-area");
+      state.symbols = [];
+      updateSymbolUI();
+    } else {
+      show("input-area");
+    }
+    saveState();
+    return;
+  }
+  // Step 1이면 → 시작 화면
+  if (state.step <= 1) {
+    state = { screen: "start", step: 1, symbols: [], showSuccess: false };
+    saveState();
+    showScreen("start");
+  } else {
+    // 이전 스텝으로
+    state.step--;
+    state.symbols = [];
+    state.showSuccess = false;
+    saveState();
+    renderStep();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+}
+
+// ===========================
 // 리셋
 // ===========================
 function resetGame() {

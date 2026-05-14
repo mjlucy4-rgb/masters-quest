@@ -33,11 +33,12 @@
 
   <!-- ====== STEP SCREEN ====== -->
   <div id="screen-step" class="screen">
-    <div class="progress-wrap">
-      <div class="progress-bar">
-        <div id="progress-fill" class="progress-fill"></div>
-      </div>
+    <div class="top-bar">
+      <button class="btn-back" onclick="goBack()">← 뒤로</button>
       <span id="step-badge" class="step-badge">Step 1 / 4</span>
+    </div>
+    <div class="progress-bar">
+      <div id="progress-fill" class="progress-fill"></div>
     </div>
 
     <div class="card step-card" id="step-main-card">

@@ -206,17 +206,37 @@ html, body {
 }
 
 /* ===========================
-   Progress Bar
+   Top Bar (뒤로가기 + Step 배지)
    =========================== */
-.progress-wrap {
+.top-bar {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 14px;
+  justify-content: space-between;
+  margin-bottom: 10px;
   position: relative;
   z-index: 1;
 }
+.btn-back {
+  background: transparent;
+  border: none;
+  color: var(--gold);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 6px 4px;
+  font-family: inherit;
+  letter-spacing: 0.2px;
+  opacity: 0.85;
+}
+.btn-back:active { opacity: 0.5; }
+
+/* ===========================
+   Progress Bar
+   =========================== */
 .progress-bar {
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 1;
   flex: 1;
   height: 7px;
   background: rgba(255,255,255,0.12);
