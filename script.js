@@ -314,6 +314,15 @@ function show(id) { document.getElementById(id).classList.remove("hidden"); }
 function hide(id) { document.getElementById(id).classList.add("hidden"); }
 
 // ===========================
+// 리셋
+// ===========================
+function resetGame() {
+  localStorage.clear();
+  state = { screen: "start", step: 1, symbols: [], showSuccess: false };
+  showScreen("start");
+}
+
+// ===========================
 // 초기화
 // ===========================
 window.addEventListener("DOMContentLoaded", () => {
